@@ -14,20 +14,20 @@ Go-Autocomplete-Trie is a simple, configurable autocompletion library for Go. Si
 
 Make a default Trie like so: 
 
-```trie := gat.New()``` 
+```t := trie.New()``` 
 
 The default Trie has *fuzzy* search enabled, string *normalisation* enabled, a default *levenshtein* scheme and is *case insensitive* by default.
 
 Next, just add some strings to the dictionary.
 
 ```
-trie.Insert("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
+t.Insert("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
 ```
 
 Next, search.
 
 ```
-trie.SearchAll("wdn")
+t.SearchAll("wdn")
 
 -> []string{"Wednesday"}
 ```
@@ -35,7 +35,7 @@ trie.SearchAll("wdn")
 Levenshtein is enabled by default.
 
 ```
-trie.SearchAll("urs")
+t.SearchAll("urs")
 
 -> []string{"Thursday", "Tuesday"}
 ```
@@ -43,17 +43,17 @@ trie.SearchAll("urs")
 To turn off the features...
 
 ```
-trie.WithoutLevenshtein().WithoutNormalisation().WithoutFuzzy().CaseSensitive()
+t.WithoutLevenshtein().WithoutNormalisation().WithoutFuzzy().CaseSensitive()
 ```
 
 Now...
 
 ```
-trie.SearchAll("urs")
+t.SearchAll("urs")
 
 -> []string{}
 
-trie.SearchAll("Thu")
+t.SearchAll("Thu")
 
 -> []string{"Thursday"}
 ```
