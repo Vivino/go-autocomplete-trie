@@ -6,6 +6,9 @@ go:
   - 1.15.x
   - master
 
+before_script:
+  - curl -sfL https://raw.githubusercontent.com/knqyf263/cob/master/install.sh | sudo sh -s -- -b /usr/local/bin
+
 script:
   - go test -v
-  - go test -run=XXX -bench= -v
+  - cob
