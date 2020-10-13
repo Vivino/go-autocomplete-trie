@@ -6,6 +6,8 @@
 
 <br />
 
+[![GoDoc](https://godoc.org/github.com/Vivino/go-autocomplete-trie?status.svg)](https://godoc.org/github.com/Vivino/go-autocomplete-trie)
+
 ## What Is it
 
 Go-Autocomplete-Trie is a simple, configurable autocompletion library for Go. Simply build a dictionary with a slice of strings, optionally configure, and then search.
