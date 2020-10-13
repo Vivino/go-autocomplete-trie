@@ -73,14 +73,14 @@ func (t *Trie) WithoutFuzzy() *Trie {
 }
 
 // WithNormalisation sets the Trie to use normalisation on search.
-// For example, jurg will find Jürgen, jürg will find Jurgen.
+// For example, Jurg will find Jürgen, Jürg will find Jurgen.
 func (t *Trie) WithNormalisation() *Trie {
 	t.normalised = true
 	return t
 }
 
 // WithoutNormalisation sets the Trie not to use normalisation on search.
-// for example jurg won't find Jürgen, jürg won't find Jurgen.
+// for example Jurg won't find Jürgen, Jürg won't find Jurgen.
 func (t *Trie) WithoutNormalisation() *Trie {
 	t.normalised = false
 	return t
