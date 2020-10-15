@@ -132,3 +132,39 @@ func TestCollect(t *testing.T) {
 		})
 	}
 }
+
+func BenchmarkInsert(b *testing.B) {
+	t := New()
+	b.ReportAllocs()
+	b.ResetTimer()
+	for n := 0; n < b.N; n++ {
+		t.Insert("hello")
+	}
+}
+
+// prevent compiler optimization
+var result []string
+
+func BenchmarkSearch(b *testing.B) {
+	t := New()
+	t.Insert("hallo you")
+	b.ReportAllocs()
+	b.ResetTimer()
+	var r []string
+	for n := 0; n < b.N; n++ {
+		r = t.Search("hello", 1)
+	}
+	result = r
+}
+
+func BenchmarkSearchAll(b *testing.B) {
+	t := New()
+	t.Insert("hallo you")
+	b.ReportAllocs()
+	b.ResetTimer()
+	var r []string
+	for n := 0; n < b.N; n++ {
+		r = t.SearchAll("hello")
+	}
+	result = r
+}
