@@ -123,6 +123,23 @@ func TestCollect(t *testing.T) {
 			search:   "hallo",
 			expected: []string{},
 		},
+		//Problematic cases start here
+		//This one will pass
+		{
+			name:     "Word order small => big",
+			dict:     []string{"suspense", "suspenseful"},
+			trie:     New(),
+			search:   "susp",
+			expected: []string{"suspense", "suspenseful"},
+		},
+		//This one won't
+		{
+			name:     "Word order big => small",
+			dict:     []string{"suspenseful", "suspense"},
+			trie:     New(),
+			search:   "susp",
+			expected: []string{"suspense", "suspenseful"},
+		},
 	}
 	for _, tt := range table {
 		t.Run(tt.name, func(t *testing.T) {
