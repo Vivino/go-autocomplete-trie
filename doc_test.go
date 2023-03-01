@@ -15,8 +15,6 @@ func Example() {
 	// Output:
 	// [Wednesday]
 	// [Thursday Tuesday Wednesday]
-
-	// The second result demonstrates both fuzzy matching and the default Levenshtein distance scheme. This is configurable.
 }
 
 func Example_noFeatures() {
